@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stone Paper Scissor Game</title>
+</head>
+<body>
+    <script>
+        let play = confirm("Can we play stone paper scissor?");
+        if (play) {
+            let game = prompt("Enter 'stone', 'paper', or 'scissor'");
+            if (game !== null) {
+                let input = game.trim().toLowerCase();
+                
+                const array = ["stone", "paper", "scissor"];
+                
+                function getRandom() {
+                    let randomIndex = Math.floor(Math.random() * array.length);
+                    return array[randomIndex];
+                }
+                
+                function fullGame() {
+                    let computerChoice = getRandom();
+                    
+                    if (input === computerChoice) {
+                        alert("It's a tie!");
+                    } else if (
+                        (input === "stone" && computerChoice === "scissor") ||
+                        (input === "paper" && computerChoice === "stone") ||
+                        (input === "scissor" && computerChoice === "paper")
+                    ) {
+                        alert("You win!");
+                    } else {
+                        alert("You lose!");
+                    }
+                    
+                    // Logging the choices to the console
+                    console.log("Player choice:", input);
+                    console.log("Computer choice:", computerChoice);
+                }
+                
+                if (array.includes(input)) {
+                    fullGame();
+                } else {
+                    alert("Invalid input! Please enter 'stone', 'paper', or 'scissor'.");
+                }
+            } else {
+                alert("No input provided!");
+            }
+        } else {
+            alert("Thank you!!");
+        }
+    </script>
+</body>
+</html>
